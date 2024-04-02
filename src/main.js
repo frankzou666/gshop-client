@@ -5,4 +5,11 @@ import '@/assets/css/reset.css'
 import './style.css'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+//引入路由器
+import router from '@/router/index.js'
+
+//创建app，并mount.
+const app = createApp(App)
+
+app.use(router)
+app.mount('#app')

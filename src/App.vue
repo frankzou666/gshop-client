@@ -1,23 +1,34 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import { defineComponent } from 'vue';
+import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+
+export default defineComponent({
+  name: 'App',
+  //局部组件
+  components: { FooterGuide },
+})
+
+
 </script>
 
 <template>
-  
-  <HelloWorld msg="Vite + Vue" />
+  <div class="root">
+    <router-view></router-view>
+
+    <!-- 页面底部组件 -->
+    <FooterGuide> </FooterGuide>
+
+  </div>
+
+
+
+
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<style lang='stylus' rel='stylesheet/stylus'>
+ .root
+   width 100%
+   height 100%
+   background-color #f5f5f5;
 </style>
+
