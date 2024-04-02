@@ -1,0 +1,144 @@
+// 导入全局样式设置
+@import '../../common/common'
+.profileDataListItem
+    font-size: 14*$vhSize 
+    
+    color:rgb(102, 102, 102)
+
+.Pprofile
+    
+    .profileTop
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        width:100%
+        height: 45 * $vhSize
+        background-color: $mainBgColor
+        color: $mainColor
+        z-index :999
+        display: flex
+        align-items: center
+        justify-content: center
+        h2
+           text-align: center
+           font-size: 22px
+    .profileNumber
+        border-top:1px solid #fff
+        margin-top: 45 * $vhSize
+        height: 100 * $vhSize
+        background-color: $mainBgColor
+        .profileLink
+            display: flex
+            padding: 20*$vhSize 10*$vhSize
+            align-items: center
+            .profileImage
+                height: 60 * $vhSize
+                width: 60 * $vhSize
+                display: flex
+                align-content: center
+                .fa-circle-user
+                    padding-top: 5 * $vhSize
+                    text-align: center
+                    height: 60 * $vhSize
+                    width: 60 * $vhSize
+                    font-size: 50 * $vhSize
+                    color:#ccc
+            .profileLogReg
+                color: $mainColor
+                padding-left 08 * $vhSize   
+                .profileLogRegp  
+                    font-size: 18 * $vhSize  
+                    padding-bottom: 12 * $vhSize     
+                .profileLogRegNoPhone
+                    font-size: 14* $vhSize  
+                    span
+                    .fa-mobile-retro
+                        margin-right: 4* $vhSize  
+                        padding-top: 4* $vhSize 
+                      
+            .profileArrow
+                color: $mainColor
+                flex: 1
+                text-align: right
+
+    .profileData
+        height: 81 *$vhSize
+        .profileDataList
+            display: flex
+            height:  81 *$vhSize
+            align-content: center
+            border-bottom: 1px solid #ddd
+            .item
+                flex: 1
+                height:  100%
+                text-align: center 
+            & .profileDataListBalance
+                .profileDataListBalanceTop
+                    padding-top:17*$vhSize  
+                    padding-bottom:  5*$vhSize  
+                    .profileDataListBalanceTotalP
+                        font-size: 30*$vhSize  
+                        color:#f90;
+                        font-weight: 700
+            & .profileDataListPromotion
+                border-left: 1px solid #ddd
+                border-right: 1px solid #ddd
+                .profileDataListPromotionTop
+                    padding-top:17*$vhSize  
+                    padding-bottom:  5*$vhSize  
+                    .profileDataListPromotionTotalP
+                        font-size: 30*$vhSize  
+                        color:rgb(255,95,62);
+                        font-weight: 700        
+            & .profileDataListScore
+                .profileDataListScoreTop
+                    padding-top:17*$vhSize  
+                    padding-bottom:  5*$vhSize  
+                    .profileDataListScoreTotalP 
+                        font-size: 30*$vhSize  
+                        color:rgb(106, 194, 11);
+                        font-weight: 700 
+    .profileFun
+        height: 212 * $vhSize
+        border-top:10px solid #ddd
+        .profileFunList
+            height: 100%
+            width: 100%
+            display: flex
+            flex-direction: column
+            .profileFunListItem
+                 width: 100%
+                 &:nth-child(3)
+                     border-bottom:10px solid #ddd
+                .profileFunListItemA
+                    width: 375 * $vhSize
+                    display: flex
+                    height: 53*$vhSize  
+                    align-items: center
+                    .profileFunListItemALeft
+                        margin-left: 15*$vhSize 
+                        margin-right: 4*$vhSize 
+                        height: 20*$vhSize   
+                        width: 20*$vhSize  
+                    .profileFunListItemARight
+                        flex: 1
+                        display: flex
+                        height: 100%
+                        align-items: center
+                        justify-content: space-between
+                        padding-right: 10*$vhSize   
+                        border-bottom: 1px solid #ddd
+                        &.profileFunListItemARightNoBorder
+                            border-bottom: 0
+                        .profileFunListItemARightLeft
+                            color:rgb(51,51,51)
+                        .profileFunListItemARightRight
+                            color: rgb(187,187,187)    
+
+                        
+                                            
+
+
+
+

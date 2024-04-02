@@ -1,8 +1,14 @@
  <template>
-  <div>
+  <div class="Porder">
+    <div class="OrderTop">
+         <h2>订单列表</h2>
+    </div>
+    <div class="OrderNologin">
+         <img src="../../assets/imgs/order/person.png" alt="">
+         <h3>登录后查看外卖订单</h3>
+         <button>立即登录</button>
 
-
-   order
+    </div>
 
 
   </div>
@@ -24,7 +30,8 @@
 
 
  </script>
-  <style lang='stylus' rel='stylesheet/stylus'>
+  <style lang='stylus' rel='stylesheet/stylus' scoped >
+   @import './Order'
 
 
 

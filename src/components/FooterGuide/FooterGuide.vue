@@ -1,19 +1,19 @@
  <template>
   <div class="PfooterGuide"> 
      <!-- 通过当前path决定一个类，并进行不同的显示，同时也使用 ｜ 表示或 -->
-     <a href="javascirpt:" class="guideItem" :class="{activeGuideItem:'/msite'===$route.path|'/'===$route.path }"  @click="goTo('/msite')">
+     <a href="javascript:" class="guideItem" :class="{activeGuideItem:'/msite'===$route.path|'/'===$route.path }"  @click="goTo('/msite')">
       <span class="itemIcon"><i class="fa fa-home"></i></span>
        <span >外卖</span>
      </a>
-     <a href="javascirpt:" class="guideItem"  :class="{activeGuideItem:'/search'===$route.path}" @click="goTo('/search')">
+     <a href="javascript:" class="guideItem"  :class="{activeGuideItem:'/search'===$route.path}" @click="goTo('/search')">
        <span class="itemIcon"><i class="fa fa-search"></i></span>
        <span class="">搜索</span>
      </a>
-     <a href="javascirpt:" class="guideItem" :class="{activeGuideItem:'/order'===$route.path}" @click="goTo('/order')">
+     <a href="javascript:" class="guideItem" :class="{activeGuideItem:'/order'===$route.path}" @click="goTo('/order')">
        <span class="itemIcon"><i class="fa fa-folder"></i></span>
        <span >订单</span>
      </a>
-     <a href="javascirpt:" class="guideItem" :class="{activeGuideItem:'/profile'===$route.path}" @click="goTo('/profile')">
+     <a href="javascript:" class="guideItem" :class="{activeGuideItem:'/profile'===$route.path}" @click="goTo('/profile')">
        <span class="itemIcon"><i class="fa fa-circle-user"></i></span>
        <span >我的</span>
      </a>
@@ -80,7 +80,7 @@
        align-items center
        justify-content center
        &.activeGuideItem
-         color skyblue
+         color:$mainBgColor
    
        
 

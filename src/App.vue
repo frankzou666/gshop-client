@@ -13,10 +13,10 @@ export default defineComponent({
 
 <template>
   <div class="root">
-    <router-view></router-view>
+     <router-view></router-view> 
 
     <!-- 页面底部组件 -->
-    <FooterGuide> </FooterGuide>
+    <FooterGuide :class="{displayOff:$route.path==='/login'}"> </FooterGuide>
 
   </div>
 
@@ -27,8 +27,13 @@ export default defineComponent({
 
 <style lang='stylus' rel='stylesheet/stylus'>
  .root
-   width 100%
-   height 100%
-   background-color #f5f5f5;
+   position:absolute
+   width:100%
+   height:100%
+   background-color: #f5f5f5
+   .displayOn
+    display:flex
+   .displayOff
+     display:none
 </style>
 

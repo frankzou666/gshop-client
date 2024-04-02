@@ -26,7 +26,11 @@ const routes=[
     {
         path:'/search',
         component:()=>import('../pages/Search/Search.vue')
-    }
+    },
+    {
+        path:'/login',
+        component:()=>import('../components/Login/Login.vue')
+    },
 ]
 
 
