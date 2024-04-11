@@ -1,8 +1,10 @@
  <template>
   <div class="Porder">
-    <div class="OrderTop">
+    <!-- <div class="OrderTop">
          <h2>订单列表</h2>
-    </div>
+    </div> -->
+
+    <HeaderTop title="订单列表" />
     <div class="OrderNologin">
          <img src="../../assets/imgs/order/person.png" alt="">
          <h3>登录后查看外卖订单</h3>

@@ -1,8 +1,10 @@
  <template>
   <div class="Psearch">
-    <div class="SearchTop">
+    <!-- <div class="SearchTop">
          <h2>搜索</h2>
-    </div>
+    </div> -->
+
+    <HeaderTop title="搜索" />
 
     <div class="SearchFrom">
          <form>

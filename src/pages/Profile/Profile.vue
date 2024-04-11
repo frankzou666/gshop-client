@@ -1,8 +1,10 @@
  <template>
   <div class="Pprofile">
-    <div class="profileTop">
+    <!-- <div class="profileTop">
        <h2>我的</h2>
-    </div>
+    </div> -->
+
+    <HeaderTop title="我的" />
 
     <div class="profileNumber">
        <a  class="profileLink" @click="goTo('/login')">

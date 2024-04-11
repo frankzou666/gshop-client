@@ -9,27 +9,45 @@ import Msite from '../pages/Msite/Msite.vue'
 const routes=[
     {
         path:'/',
-        component:Msite
+        component:Msite,
+        meta:{
+            showFooter:true
+        }
     },
     {
         path:'/msite',
-        component:Msite
+        component:Msite,
+        meta:{
+          showFooter:true
+        },
     },
     {
         path:'/order',
-        component:()=>import('../pages/Order/Order.vue')
+        component:()=>import('../pages/Order/Order.vue'),
+        meta:{
+          showFooter:true
+        },
     },
     {
         path:'/profile',
-        component:()=>import('../pages/Profile/Profile.vue')
+        component:()=>import('../pages/Profile/Profile.vue'),
+        meta:{
+          showFooter:true
+        },
     },
     {
         path:'/search',
-        component:()=>import('../pages/Search/Search.vue')
+        component:()=>import('../pages/Search/Search.vue'),
+        meta:{
+          showFooter:true
+        },
     },
     {
         path:'/login',
-        component:()=>import('../components/Login/Login.vue')
+        component:()=>import('../components/Login/Login.vue'),
+        meta:{
+          showFooter:false
+        },
     },
 ]
 

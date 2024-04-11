@@ -13,14 +13,11 @@ export default defineComponent({
 
 <template>
   <div class="root">
-     <router-view></router-view> 
-
+    <router-view></router-view> 
     <!-- 页面底部组件 -->
-    <FooterGuide :class="{displayOff:$route.path==='/login'}"> </FooterGuide>
+    <FooterGuide v-show="$route.meta.showFooter"> </FooterGuide>
 
   </div>
-
-
 
 
 </template>
