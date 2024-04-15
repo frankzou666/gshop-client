@@ -1,21 +1,17 @@
 <template>
     <div class="PMsite">
-        <!-- 头部-->
-        <!-- <div class="header">
-        <div class="search"><i class="fa fa-location"></i></div>
-        <div class="location ellipsis">昌平区王府井北货大街昌昌平区王府井北货大街昌昌平区王府井北货大街昌</div>
-        <div class="loginAndRegister">登录|注册</div>
-     </div> -->
+       
 
-        <HeaderTop :title="location">
+        <HeaderTop :title="address.name">
             <!-- slot用法 放到组件的slot-->
             <template v-slot:searchSlot>
                 <div class="search"><i class="fa fa-location"></i></div>
             </template>
             <template v-slot:rightSlot>
-                <div class="loginAndRegister" slot="rightSlot">登录|注册</div>
+                <div class="loginAndRegister" slot="rightSlot"  @click="goTo('/login')">登录|注册</div>
             </template>
         </HeaderTop>
+
 
       
         <!-- 导航-->
@@ -26,7 +22,20 @@
                 :pagination="{ clickable: true }" :autoplay="{ delay: 2, disableOnInteraction: true }"
                 :navigation="true" :modules="modules">
 
-                <swiper-slide>
+                <swiper-slide v-for="(category2Arr_1,index)  in categorys" :key="index">
+                    <ul class="navList">
+                        <li class="item swiper-slide"  v-for="(item,index)  in category2Arr_1" :key="index">
+                            <a href="javascript:;" class="itemA">
+                                 <img :src="'/src/assets/imgs/nav/'+(index+1)+'.jpg'" alt="">
+                                <!-- <img src="../../assets/imgs/nav/1.jpg" alt="">  -->
+                                <span>{{ item.title}}</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </swiper-slide>
+
+                <!-- <swiper-slide>
                     <ul class="navList">
                         <li class="item swiper-slide">
                             <a href="javascript:;" class="itemA">
@@ -128,7 +137,7 @@
                     </ul>
 
 
-                </swiper-slide>
+                </swiper-slide> -->
 
 
 
@@ -407,10 +416,8 @@
 
                     </li> -->
                  
-                    <ShopList />
-                    <ShopList />
-                    <ShopList />
-                    <ShopList />
+                    <ShopList v-for="(shop,index) in shops" :key="shop.id" :shop="shop"/>
+                  
                 
                 </ul>
             </div>
@@ -426,6 +433,7 @@
 </template>
 <script>
 import { defineComponent ,ref} from 'vue'
+import {mapState} from 'vuex'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import "swiper/css";
 import 'swiper/css/pagination'
@@ -439,15 +447,23 @@ export default defineComponent({
         let latitude = ref()
         let longitude =ref()
         let location = ref('')
+        let category2Arr= ref()
         return {
             modules: [Navigation, Pagination,Scrollbar],latitude,longitude,location
         }
     },
     mounted() {
         //获取当前的location
+        //this.getArry2ForCategorys()
         this.getGetLocation()
         this.getPosition(this.latitude+','+this.longitude)
         
+
+        
+    },
+    computed:{
+        ...mapState(['address','categorys','shops'])
+
     },
     components: { SwiperSlide,ShopList },
     methods:{
@@ -456,7 +472,24 @@ export default defineComponent({
             let result = await reqPosition(location);
             if (result.code===0) {
                this.location=result.data.name
-        }
+            }
+        },    
+        getArry2ForCategorys:function() {
+            let categoryArr= this.$store.state.categorys;
+            //每一组放8个
+            var category2ArrTemp = []
+            let newCategory = Math.round(categoryArr.length/8)
+            for (var j=0;j<newCategory;j++) {
+                let temparry=[]
+                for (var i=0;i<8;i++) {
+                  temparry.push(categoryArr[i+j*(8)])
+               }
+               console.log(temparry)
+               category2ArrTemp.push(temparry)
+            }
+            this.category2Arr = category2ArrTemp
+            console.log(this.category2Arr)
+
         },
         //获取当前getlocation
         getGetLocation:function() {
@@ -471,8 +504,16 @@ export default defineComponent({
             this.latitude ='40.10038'
             this.longitude ='116.3686'
           } 
-        }  
+        } ,
+        goTo:function() {
+            this.$router.push("/login")
+        }
           
+    },
+    watch:{
+        //监视categorys的属性
+        address(value) {
+        }
     }
 
 })

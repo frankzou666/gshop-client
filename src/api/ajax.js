@@ -25,9 +25,9 @@ const ajax= function(url,type,data={}){
 
             if (dataStr!='') {
                 //拼且最终请求参数，且最后一个 ‘&'不需要
-                url = url+dataStr.substring(0,dataStr.lastIndexOf('&'))
+                url = url+'?'+dataStr.substring(0,dataStr.lastIndexOf('&'))
             }
-            promise = axios.get(url,{params:data})
+            promise = axios.get(url)
         };
         if (type==='post') {
             promise = axios.get(post,data)

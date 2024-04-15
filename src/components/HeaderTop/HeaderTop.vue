@@ -4,6 +4,7 @@
         <!-- <div class="search"><i class="fa fa-location"></i></div> -->
         <slot  name="searchSlot"></slot>
         <div class="title ellipsis">{{title }}</div>
+        <!-- <div class="title ellipsis">{{ baseUrl }}</div> -->
         <!-- <div class="loginAndRegister">登录|注册</div> -->
         <slot name="rightSlot"></slot>
     </div>
@@ -14,8 +15,11 @@
  
  import { defineComponent } from 'vue';
 
+
  export default defineComponent({
     setup() {
+        const baseUrl = import.meta.env.VITE_BASE_URL
+        return {baseUrl}
 
     },
     props:['title']

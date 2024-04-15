@@ -5,31 +5,30 @@
             </div>
             <div class="contentShopRight">
                 <div class="contentShopRightTop">
-                    <h4 class="shopTitle ellipsis">锄禾日当午，汗滴禾下土</h4>
+                    <h4 class="shopTitle ellipsis">{{ shop.name }}</h4>
                     <ul class="shopTag">
-                        <li class="shopTagItem"><span>保</span></li>
+                        <li class="shopTagItem" v-for="(item,index) in shop.supports" :key="index"><span :style="{'color':'#'+item.icon_color}">{{ item.icon_name }}</span></li>
+                        
+
+                        <!-- <li class="shopTagItem"><span v-show="">保</span></li>
                         <li class="shopTagItem"><span>准</span></li>
-                        <li class="shopTagItem"><span>票</span></li>
+                        <li class="shopTagItem"><span>票</span></li> -->
                     </ul>
                 </div>
                 <div class="contentShopRightMiddle">
                     <div class="ratingLeft">
-                        <span class="star starFull"></span>
-                        <span class="star starFull"></span>
-                        <span class="star starFull"></span>
-                        <span class="star starHalf"></span>
-                        <span class="star starOff"></span>
-                        <div class="ratingScore">3.6</div>
-                        <div class="ratingOrderPerMonth">月售106单</div>
+                        <ShowStar :rating="shop.rating" :starSize="24"></ShowStar>
+                        <div class="ratingScore">{{ shop.rating }}</div>
+                        <div class="ratingOrderPerMonth">月售{{shop.recent_order_num}}单</div>
                     </div>
                     <div class="ratingRigth">
-                        <span>硅谷专卖</span>
+                        <span>{{ shop.delivery_mode.text}}</span>
                     </div>
                 </div>
                 <div class="contentShopRightBottom">
-                    <span class="startDistance">¥20起送</span>
+                    <span class="startDistance">¥{{ shop.float_minimum_order_amount}}起送</span>
                     <span class="startSplitor">/</span>
-                    <span class="startDeliveyFee">配送费约¥5</span>
+                    <span class="startDeliveyFee">配送费约¥{{ shop.float_delivery_fee}}</span>
                 </div>
             </div>
         </a>
@@ -39,6 +38,8 @@
 <script >
 
 import { defineComponent } from 'vue'
+
+import ShowStar from './ShowStar.vue'
 export default defineComponent({
     name:'ShopList',
     setup() {
@@ -46,6 +47,8 @@ export default defineComponent({
             
         }
     },
+    components:{ ShowStar} ,
+    props:['shop']
 })    
 
 

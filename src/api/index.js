@@ -20,7 +20,7 @@ const API= {
 export const reqPosition=(data)=>{ return ajax(BASE_URL+API.POSITION+'/'+data,'get',{})}
 
 //获取食品分类
-export const reqFoodTypes=(data)=>{ return ajax(BASE_URL+API.FOODTYPES,'get',{})}
+export const reqFoodCategorys=(data)=>{ return ajax(BASE_URL+API.FOODTYPES,'get',{})}
 
 //根据经纬度获取商铺列表
 export const reqShopList = (longitude,latitude)=>{ return ajax(BASE_URL+API.SHOPLIST,'get',{longitude,latitude})}

@@ -2,10 +2,23 @@
 import { defineComponent } from 'vue';
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
 
+//引入自定义的api
+import {reqFoodCategorys} from '../src/api/index'
+
 export default defineComponent({
   name: 'App',
   //局部组件
   components: { FooterGuide },
+  async mounted(){
+    this.$store.dispatch('getFoodCategorys')
+    this.$store.dispatch('getAddress')
+    //获取商家列表
+   this.$store.dispatch('getShoplist')
+   //获取商品列表
+   
+
+  },
+
 })
 
 

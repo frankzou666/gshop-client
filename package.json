@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode dev",
+    "build": "vite build --mode prod",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -15,7 +15,8 @@
     "stylus-loader": "^8.1.0",
     "swiper": "^11.1.0",
     "vue": "^3.3.11",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
