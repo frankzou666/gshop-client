@@ -1,5 +1,5 @@
 <template>
-    <li class="contentItem">
+    <li class="contentItem" @click="console.log('ok')">
         <a href="script" class="contentShop">
             <div class="contentShopLeft"><img src="../../../assets/imgs/shop/1.jpg" class="contentShop-l" alt="">
             </div>
@@ -7,7 +7,7 @@
                 <div class="contentShopRightTop">
                     <h4 class="shopTitle ellipsis">{{ shop.name }}</h4>
                     <ul class="shopTag">
-                        <li class="shopTagItem" v-for="(item,index) in shop.supports" :key="index"><span :style="{'color':'#'+item.icon_color}">{{ item.icon_name }}</span></li>
+                        <li class="shopTagItem" v-for="(item,index) in shop.supports" :key="index" @click="$router.push('/shop')"><span :style="{'color':'#'+item.icon_color}">{{ item.icon_name }}</span></li>
                         
 
                         <!-- <li class="shopTagItem"><span v-show="">保</span></li>

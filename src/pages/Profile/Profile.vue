@@ -12,12 +12,12 @@
            <i class="fa fa-circle-user"></i>
          </div>
          <div class="profileLogReg">
-           <p class="profileLogRegp">登录/注册</p>
-           
+           <p class="profileLogRegp">{{userInfo?userInfo._id:'登录/注册'}}</p>
+          
             
             <div class="profileLogRegNoPhone">
               <i class="fa fa-mobile-retro"></i>
-              <span>暂无绑定手机号</span>
+              <span>{{userInfo?userInfo.phone:'暂无绑定手机号'}}</span>
             </div>
         </div>
   
@@ -105,9 +105,11 @@
               </div>
             </a>
           </li>
-
+          <van-button type="danger" size="large">退出</van-button>
 
        </ul>
+
+      
     </div>
 
 
@@ -117,12 +119,22 @@
  <script>
 
   import {defineComponent} from 'vue'
+  import { mapState } from 'vuex';
+
   
   export default defineComponent({
+    computed:{
+      ...mapState(['userInfo'])
+    },
     methods:{
       goTo:function(path){
         this.$router.push(path)
       }
+    },
+    //logout
+    logout:function(){
+      MessageBox.confirm('config logout?')
+
     }
   })
 

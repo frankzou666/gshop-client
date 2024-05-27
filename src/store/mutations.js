@@ -1,7 +1,12 @@
 
 // 直接更新state的方法对像
 
-import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS} from './mutations-type'
+import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,
+    RECEIVE_USERINFO,
+    RECEIVE_GOODS,
+    RECEIVE_RATINGS,
+    RECEIVE_INFO,
+} from './mutations-type'
 
 export default {
 
@@ -35,5 +40,18 @@ export default {
     },
     [RECEIVE_SHOPS] (state,{shops}) {
         state.shops=shops
+    },
+
+    [RECEIVE_USERINFO] (state,{userInfo}) {
+        state.userInfo=userInfo
+    },
+    [RECEIVE_INFO] (state,{Info}) {
+        state.Info=Info
+    },
+    [RECEIVE_GOODS] (state,{goods}) {
+        state.goods=goods
+    },
+    [RECEIVE_RATINGS] (state,{ratings}) {
+        state.ratings=ratings
     }
 }

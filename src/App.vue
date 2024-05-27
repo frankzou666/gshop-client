@@ -1,5 +1,6 @@
 <script>
 import { defineComponent } from 'vue';
+import {mapActions} from 'vuex'
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
 
 //引入自定义的api
@@ -15,9 +16,15 @@ export default defineComponent({
     //获取商家列表
    this.$store.dispatch('getShoplist')
    //获取商品列表
+
+   //获取用户信息
+   this.getUserInfo()
    
 
   },
+  methods:{
+    ...mapActions(['getUserInfo'])
+  }
 
 })
 

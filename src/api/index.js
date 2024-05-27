@@ -12,7 +12,22 @@ const API= {
     //获取商铺列表
     SHOPLIST :'/api/shops',
     //验证码
-    CAPTCHA:'/api/captcha'
+    CAPTCHA:'/api/captcha',
+    //用户名和密码
+    LOGINPWD:'/api/login_pwd',
+    //获取短们验证码
+    SENDCODE:'/api/sendcode',
+    //手机号验证码登录
+    LOGINSMS:'/api/login_sms',
+    //获取用户信息
+    USERINFO:'/api/userinfo',
+    //退出
+    LOGOUT:'/api/logout',
+    //查找商铺列表
+    SEARCHSHOPS:'/api/search_shops',
+
+ 
+
 }
 
 
@@ -27,3 +42,37 @@ export const reqShopList = (longitude,latitude)=>{ return ajax(BASE_URL+API.SHOP
 
 //请求验证码
 export const reqCaptcha=()=>{ return ajax(BASE_URL+API.CAPTCHA,'get',{})}
+
+//用户名和密码登录
+export const reqLoginPwd=({name,pwd,captcha})=>{ return ajax(BASE_URL+API.LOGINPWD,'post',{name,pwd,captcha})}
+
+//发送短信验证码
+export const reqSendSms=(phone)=>{ return ajax(BASE_URL+API.SENDCODE,'get',{phone})}
+
+//短信登录
+export const reqLoginSms=({phone,code})=>{ return ajax(BASE_URL+API.LOGINSMS,'post',{phone,code})}
+
+//请求用户信息
+export const reqGetUserInfo=()=>{ return ajax(BASE_URL+API.USERINFO,'get',{})}
+
+//退出
+export const reqLogout=()=>{ return ajax(BASE_URL+API.LOGOUT,'post',{})}
+
+
+//根据经纬度查找列表商铺列表
+export const reqSearchShop = (keyworkd,geohash)=>{ return ajax(BASE_URL+API.SEARCHSHOPS,'get',{keyworkd,geohash})}
+
+
+//获取用户信息
+export const reqUserInfo =()=>{ return ajax(BASE_URL+API.LOGOUT,'post',{})}
+
+
+//获取商家信息
+export const reqShopInfo=()=>ajax("/info",'get',{})
+
+
+//获取商家评价数组
+export const reqShopRatings=()=>ajax.get("/ratings",'get',{})
+
+//获取商家
+export const reqShopGoods=()=>ajax.get("/goods",'get',{})

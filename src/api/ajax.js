@@ -30,7 +30,7 @@ const ajax= function(url,type,data={}){
             promise = axios.get(url)
         };
         if (type==='post') {
-            promise = axios.get(post,data)
+            promise = axios.post(url,data)
         };
 
         promise.then((response)=>{

@@ -6,6 +6,8 @@ import Msite from '../pages/Msite/Msite.vue'
 // import Profile from '../pages/Profile/Profile.vue'
 // import Search from '../pages/Search/Search.vue'
 
+
+
 const routes=[
     {
         path:'/',
@@ -48,6 +50,34 @@ const routes=[
         meta:{
           showFooter:false
         },
+    },
+
+    {
+      path:'/shop',
+      component:()=>import('../pages/Shop/Shop.vue'),
+      children:[
+        {
+          path:'/shop/goods',
+          component:()=>import('../pages/Shop/ShopGoods/ShopGoods.vue'),
+        },
+        {
+          path:'/shop/info',
+          component:()=>import('../pages/Shop/ShopInfo/ShopInfo.vue'),
+        },
+        {
+          path:'/shop/ratings',
+          component:()=>import('../pages/Shop/ShopRatings/ShopRatings.vue'),
+        },
+
+        {
+          path:'/',
+          redirect:()=>import('../pages/Shop/ShopGoods/ShopGoods.vue'),
+        },
+
+      ],
+      meta:{
+       
+      },
     },
 ]
 

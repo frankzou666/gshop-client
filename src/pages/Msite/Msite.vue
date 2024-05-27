@@ -8,15 +8,12 @@
                 <div class="search"><i class="fa fa-location"></i></div>
             </template>
             <template v-slot:rightSlot>
-                <div class="loginAndRegister" slot="rightSlot"  @click="goTo('/login')">登录|注册</div>
+                <div class="loginAndRegister" slot="rightSlot"  @click="goTo('/login')">{{ userInfo?userInfo._id:'登录｜注册' }}</div>
             </template>
         </HeaderTop>
-
-
       
         <!-- 导航-->
         <div class="nav swiper">
-
 
             <swiper :slidesPerView="1" :spaceBetween="30" :loop="true" :centeredSlides="true"
                 :pagination="{ clickable: true }" :autoplay="{ delay: 2, disableOnInteraction: true }"
@@ -26,8 +23,9 @@
                     <ul class="navList">
                         <li class="item swiper-slide"  v-for="(item,index)  in category2Arr_1" :key="index">
                             <a href="javascript:;" class="itemA">
-                                 <img :src="'/src/assets/imgs/nav/'+(index+1)+'.jpg'" alt="">
-                                <!-- <img src="../../assets/imgs/nav/1.jpg" alt="">  -->
+                                 <img :src="'./imgs/nav/'+(index+1)+'.jpg'" alt="">
+                                 
+                                 <!-- <img src="../../assets/imgs/nav/1.jpg" alt="">   -->
                                 <span>{{ item.title}}</span>
                             </a>
                         </li>
@@ -416,7 +414,7 @@
 
                     </li> -->
                  
-                    <ShopList v-for="(shop,index) in shops" :key="shop.id" :shop="shop"/>
+                    <ShopList v-for="(shop,index) in shops" :key="shop.id" :shop="shop" />
                   
                 
                 </ul>
@@ -462,7 +460,7 @@ export default defineComponent({
         
     },
     computed:{
-        ...mapState(['address','categorys','shops'])
+        ...mapState(['address','categorys','shops','userInfo'])
 
     },
     components: { SwiperSlide,ShopList },
